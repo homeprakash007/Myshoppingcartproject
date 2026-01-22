@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DC Mart | Shopping</title>
+    <link rel="icon" type="Image/jpeg" href="Images/Shopping cart.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="initializeSite()">
+
+    <div class="main-branding">
+        <h1><a onclick="showHomePage()" class="logo-link"> DC Mart 🛒</a></h1>
+    </div>
+
+    <header>
+        <nav>
+            <a onclick="showCategory('home')" class="nav-item">
+                <i class="bi bi-tools"></i> HOME APPLIANCES
+            </a>
+            
+            <div class="dropdown">
+                <div class="nav-item">
+                    <i class="bi bi-person-dress"></i> CLOTHING
+                </div>
+                <div class="dropdown-content">
+                    <a onclick="showCategory('men')">Men's Wear</a>
+                    <a onclick="showCategory('women')">Women's Wear</a>
+                </div>
+            </div>
+
+            <a onclick="showCategory('food')" class="nav-item">
+                <i class="bi bi-cup-hot"></i> FOOD
+            </a>
+
+            <a onclick="showCategory('books')" class="nav-item">
+                <i class="bi bi-book"></i> BOOKS
+            </a>
+            
+            <a onclick="openCart()" class="nav-item cart-link">
+                <i class="bi bi-cart4"></i> CART 
+                <span id="cartCount" class="cart-badge">0</span>
+            </a> 
+        </nav> 
+        <div class="username-pill" id="welcomeUser">Welcome Guest</div>
+    </header>
+
+    <div class="main-content-wrapper">
+        <div id="imageCarousel" class="carousel">
+            <div class="carousel-inner" id="carouselInner"></div>
+        </div>
+        
+        <div id="productSection" class="products"></div>
+
+        <div id="cartPage" class="page-container">
+            <h2 class="section-title">🛒 Your Shopping Cart</h2>
+            <table id="cartTable"></table>
+            <div class="action-bar" style="text-align:center; margin-top:20px;">
+                <button class="primary-btn" onclick="proceedToPayment()" style="width:auto; padding: 12px 40px;">Proceed to Payment</button>
+            </div>
+        </div>
+
+        <div id="paymentPage" class="page-container small-container">
+            <h2 class="section-title">💳 Payment Method</h2>
+            <select id="paymentSelect" class="styled-select" onchange="updatePaymentInputPlaceholder()">
+                <option value="" disabled selected>-- Select a Payment Method --</option>
+                <option value="Wallet">GPay / Paytm / PhonePe</option>
+                <option value="UPI">UPI ID</option>
+                <option value="Card">Credit / Debit Card</option>
+            </select>
+            <div id="paymentInputContainer"></div>
+            <button class="primary-btn" onclick="processPayment()">Pay Now</button>
+        </div>
+
+        <div id="successPage" class="page-container">
+            <div class="success-message" style="text-align:center;">
+                <i class="bi bi-check-circle-fill" style="font-size: 4rem; color: #28a745;"></i>
+                <h1>Payment Successful!</h1>
+                <p>Thank you for shopping with DC Mart.</p>
+                <button class="primary-btn" onclick="showHomePage()" style="width:auto; padding: 10px 30px;">Continue Shopping</button>
+            </div>
+        </div>
+    </div> 
+
+    <footer>
+        <div class="footer-info">
+            <p>© 2025 DCmart.in | Become a seller | Help centre</p>
+            <div class="footer-socials">
+                <a href="#"><i class="bi bi-envelope"></i></a>
+                <a href="#"><i class="bi bi-telephone"></i></a>
+                <a href="#"><i class="bi bi-twitter-x"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
